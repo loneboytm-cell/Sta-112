@@ -1,0 +1,394 @@
+<script>
+let activeQuestions = [];
+let current = 0;
+let answers = [];
+let started = false;
+let time = 3600;
+let interval = null;
+
+/* =========================
+   START RANDOM 35
+========================= */
+function startRandomTest() {
+    if (!Array.isArray(questions) || questions.length < 35) {
+        alert("Question bank error. You need at least 35 questions.");
+        return;
+    }
+
+    // Make a copy so the original question bank is never changed
+    const pool = [...questions];
+
+    // Fisher-Yates random shuffle
+    for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+
+    // Exactly 35 random questions
+    activeQuestions = pool.slice(0, 35);
+
+    // Reset exam
+    current = 0;
+    answers = Array(35).fill(null);
+    time = 3600;
+    started = true;
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("exam").style.display = "block";
+
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+        time--;
+
+        if (time <= 0) {
+            time = 0;
+            updateTimer();
+            clearInterval(interval);
+            finishExam();
+            return;
+        }
+
+        updateTimer();
+    }, 1000);
+
+    renderQuestion();
+    updateTimer();
+}
+
+/* =========================
+   TIMER
+========================= */
+function updateTimer() {
+    const timer = document.getElementById("timer");
+
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    timer.textContent =
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0");
+
+    if (time <= 300) {
+        timer.classList.add("danger");
+    } else {
+        timer.classList.remove("danger");
+    }
+}
+
+/* =========================
+   SHOW QUESTION
+========================= */
+function renderQuestion() {
+    if (!activeQuestions.length) return;
+
+    const q = activeQuestions[current];
+
+    document.getElementById("counter").textContent =
+        `Question ${current + 1} of ${activeQuestions.length}`;
+
+    document.getElementById("qnum").textContent =
+        `QUESTION ${current + 1}`;
+
+    document.getElementById("qtext").textContent =
+        q.question;
+
+    const optionsBox = document.getElementById("options");
+    optionsBox.innerHTML = "";
+
+    const letters = ["A", "B", "C", "D"];
+
+    q.options.forEach((option, index) => {
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        if (answers[current] === letters[index]) {
+            button.classList.add("selected");
+        }
+
+        button.innerHTML = `
+            <span class="letter">${letters[index]}</span>
+            <span>${escapeHTML(option)}</span>
+        `;
+
+        button.onclick = () => selectAnswer(letters[index]);
+
+        optionsBox.appendChild(button);
+    });
+
+    updateProgress();
+    updateGrid();
+
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (current === activeQuestions.length - 1) {
+        nextBtn.textContent = "Finish Exam ✓";
+    } else {
+        nextBtn.textContent = "Next →";
+    }
+}
+
+/* =========================
+   SELECT ANSWER
+========================= */
+function selectAnswer(letter) {
+    answers[current] = letter;
+    renderQuestion();
+}
+
+/* =========================
+   NEXT
+========================= */
+function nextQ() {
+    if (current === activeQuestions.length - 1) {
+        finishExam();
+        return;
+    }
+
+    current++;
+    renderQuestion();
+}
+
+/* =========================
+   PREVIOUS
+========================= */
+function prevQ() {
+    if (current > 0) {
+        current--;
+        renderQuestion();
+    }
+}
+
+/* =========================
+   PROGRESS
+========================= */
+function updateProgress() {
+    const answeredCount =
+        answers.filter(a => a !== null).length;
+
+    document.getElementById("answered").textContent =
+        `${answeredCount} answered`;
+
+    const percent =
+        ((current + 1) / activeQuestions.length) * 100;
+
+    document.getElementById("fill").style.width =
+        percent + "%";
+}
+
+/* =========================
+   QUESTION NUMBER GRID
+========================= */
+function updateGrid() {
+    const grid = document.getElementById("grid");
+
+    grid.innerHTML = "";
+
+    activeQuestions.forEach((q, index) => {
+        const button = document.createElement("button");
+
+        button.className = "jump";
+        button.textContent = index + 1;
+
+        if (answers[index] !== null) {
+            button.classList.add("done");
+        }
+
+        if (index === current) {
+            button.classList.add("current");
+        }
+
+        button.onclick = () => {
+            current = index;
+            renderQuestion();
+        };
+
+        grid.appendChild(button);
+    });
+}
+
+/* =========================
+   FINISH EXAM
+========================= */
+function finishExam() {
+    if (!started) return;
+
+    clearInterval(interval);
+    started = false;
+
+    let score = 0;
+
+    activeQuestions.forEach((q, index) => {
+        if (
+            answers[index] &&
+            answers[index].toUpperCase() ===
+            String(q.answer).toUpperCase()
+        ) {
+            score++;
+        }
+    });
+
+    const total = activeQuestions.length;
+    const percentage = Math.round((score / total) * 100);
+
+    document.getElementById("exam").style.display = "none";
+    document.getElementById("result").style.display = "grid";
+
+    document.getElementById("score").textContent =
+        `${percentage}%`;
+
+    document.getElementById("scoreText").textContent =
+        getScoreMessage(percentage);
+
+    document.getElementById("resultStats").textContent =
+        `${score} correct • ${total - score} wrong • ${total} questions`;
+
+    buildCorrection();
+}
+
+/* =========================
+   SCORE MESSAGE
+========================= */
+function getScoreMessage(percent) {
+    if (percent >= 80) return "Excellent performance 🔥";
+    if (percent >= 70) return "Very good work 💪";
+    if (percent >= 60) return "Good job 👍";
+    if (percent >= 50) return "You can do better 📚";
+    return "Keep studying and try again 💯";
+}
+
+/* =========================
+   CORRECTION
+========================= */
+function buildCorrection() {
+    const review = document.getElementById("review");
+
+    review.innerHTML = `
+        <h3 style="margin-top:20px">
+            📚 CORRECTION
+        </h3>
+    `;
+
+    activeQuestions.forEach((q, index) => {
+        const correct =
+            String(q.answer).toUpperCase();
+
+        const selected =
+            answers[index] || "Not answered";
+
+        const isCorrect =
+            selected !== "Not answered" &&
+            selected.toUpperCase() === correct;
+
+        const item = document.createElement("div");
+
+        item.className =
+            "reviewitem " +
+            (isCorrect ? "correct" : "wrong");
+
+        const letters = ["A", "B", "C", "D"];
+
+        let optionsHTML = "";
+
+        q.options.forEach((option, i) => {
+            const letter = letters[i];
+
+            let extra = "";
+
+            if (letter === correct) {
+                extra = `
+                    <strong style="color:#18c985">
+                        ✓ Correct answer
+                    </strong>
+                `;
+            }
+
+            if (
+                letter === selected &&
+                letter !== correct
+            ) {
+                extra = `
+                    <strong style="color:#ff5364">
+                        ✗ Your answer
+                    </strong>
+                `;
+            }
+
+            optionsHTML += `
+                <div style="
+                    padding:7px 0;
+                    font-size:13px;
+                    color:#c7d0dd;
+                ">
+                    <b>${letter}.</b>
+                    ${escapeHTML(option)}
+                    ${extra}
+                </div>
+            `;
+        });
+
+        item.innerHTML = `
+            <b>
+                Question ${index + 1}
+            </b>
+
+            <div style="
+                margin:8px 0;
+                line-height:1.5;
+                font-size:14px;
+            ">
+                ${escapeHTML(q.question)}
+            </div>
+
+            <div class="ans">
+                Your answer:
+                <strong>
+                    ${selected}
+                </strong>
+            </div>
+
+            <div class="ans">
+                Correct answer:
+                <strong style="color:#18c985">
+                    ${correct}
+                </strong>
+            </div>
+
+            <div style="margin-top:8px">
+                ${optionsHTML}
+            </div>
+        `;
+
+        review.appendChild(item);
+    });
+}
+
+/* =========================
+   SAFELY DISPLAY TEXT
+========================= */
+function escapeHTML(text) {
+    if (text === null || text === undefined) {
+        return "";
+    }
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+/* =========================
+   PREVENT ACCIDENTAL EXIT
+========================= */
+window.addEventListener("beforeunload", function (e) {
+    if (started) {
+        e.preventDefault();
+        e.returnValue = "";
+    }
+});
+  </script>
