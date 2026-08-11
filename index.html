@@ -3,169 +3,1182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Sᴍᴏᴋᴇ•X — STA 112 Random 35 CBT</title>
+<title>Sᴍᴏᴋᴇ•X — STA 112 CBT</title>
+
 <style>
-:root{--bg:#070a10;--panel:#101620;--panel2:#151c28;--line:#263143;--text:#f4f7fb;--muted:#8e9aae;--blue:#4d8dff;--green:#18c985;--red:#ff5364;--gold:#ffc857}
+:root{
+--bg:#070a10;
+--panel:#101620;
+--panel2:#151c28;
+--line:#263143;
+--text:#f4f7fb;
+--muted:#8e9aae;
+--blue:#4d8dff;
+--green:#18c985;
+--red:#ff5364;
+--gold:#ffc857
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 50% -10%,#142443 0,#070a10 45%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+
+body{
+margin:0;
+background:radial-gradient(circle at 50% -10%,#142443 0,#070a10 45%);
+color:var(--text);
+font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+min-height:100vh
+}
+
 button{font:inherit}
-.top{position:sticky;top:0;z-index:20;background:rgba(7,10,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px}
-.topin{max-width:760px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.brand{font-weight:900;font-size:17px}.brand span{color:var(--blue)}
+
+.top{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(7,10,16,.94);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);
+padding:12px
+}
+
+.topin{
+max-width:760px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px
+}
+
+.brand{font-weight:900;font-size:17px}
+.brand span{color:var(--blue)}
 .meta{font-size:11px;color:var(--muted);margin-top:2px}
-.timer{padding:9px 11px;border-radius:11px;background:#111a29;border:1px solid #2a3b55;font-weight:900;color:#9fc2ff;min-width:78px;text-align:center}
-.timer.danger{color:#ff7180;border-color:#71313a}
-.wrap{max-width:760px;margin:auto;padding:14px 12px 110px}
-.progressbox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px}
-.progressrow{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:8px}
-.track{height:6px;background:#1b2330;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#3f7cff,#64a1ff);width:0;transition:.2s}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 14px 40px #0005}
-.qnum{font-size:12px;color:#7faeff;font-weight:900;margin-bottom:10px}
-.qtext{font-size:17px;line-height:1.55;font-weight:700;margin-bottom:17px}
-.option{width:100%;text-align:left;background:var(--panel2);color:var(--text);border:1px solid #2b3545;border-radius:13px;padding:13px 12px;margin:7px 0;cursor:pointer;display:flex;gap:10px;align-items:flex-start;transition:.15s}
-.option:hover{border-color:#5279b8}.option.selected{border-color:var(--blue);background:#142746}.letter{min-width:26px;height:26px;border-radius:8px;background:#202a39;display:grid;place-items:center;font-weight:900;color:#aab8cc;font-size:12px}.selected .letter{background:var(--blue);color:#fff}
-.nav{display:flex;gap:8px;margin-top:12px}.nav button{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:#121a26;color:#fff;font-weight:800;cursor:pointer}.nav .primary{background:var(--blue);border-color:var(--blue)}
-.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:12px}.jump{padding:8px 0;border-radius:8px;background:#121a25;color:#9aa7b9;border:1px solid #242e3e;font-size:11px;font-weight:800}.jump.done{background:#123d31;color:#54e0ad;border-color:#1c7258}.jump.current{outline:2px solid var(--blue);color:#fff}
-#start,#result{min-height:calc(100vh - 70px);display:grid;place-items:center}.hero{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;max-width:500px;box-shadow:0 20px 60px #0006}.hero h1{margin:0 0 7px;font-size:28px}.hero p{color:var(--muted);line-height:1.55}.hero button{background:var(--blue);border:0;color:white;padding:13px 24px;border-radius:12px;font-weight:900;cursor:pointer}.score{font-size:48px;font-weight:1000;color:#68a0ff}.small{font-size:12px;color:var(--muted)}
-.review{margin-top:15px}.reviewitem{background:#111824;border:1px solid var(--line);border-radius:13px;padding:13px;margin:8px 0}.correct{border-color:#1b684f}.wrong{border-color:#73333c}.reviewitem b{display:block;margin-bottom:7px}.ans{font-size:13px;color:var(--muted)}
-@media(max-width:500px){.qtext{font-size:16px}.grid{grid-template-columns:repeat(8,1fr)}.card{padding:15px}}
+
+.timer{
+padding:9px 11px;
+border-radius:11px;
+background:#111a29;
+border:1px solid #2a3b55;
+font-weight:900;
+color:#9fc2ff;
+min-width:78px;
+text-align:center
+}
+
+.timer.danger{
+color:#ff7180;
+border-color:#71313a
+}
+
+.wrap{
+max-width:760px;
+margin:auto;
+padding:14px 12px 110px
+}
+
+.progressbox{
+background:var(--panel);
+border:1px solid var(--line);
+border-radius:14px;
+padding:12px;
+margin-bottom:12px
+}
+
+.progressrow{
+display:flex;
+justify-content:space-between;
+color:var(--muted);
+font-size:12px;
+margin-bottom:8px
+}
+
+.track{
+height:6px;
+background:#1b2330;
+border-radius:20px;
+overflow:hidden
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#3f7cff,#64a1ff);
+width:0;
+transition:.2s
+}
+
+.card{
+background:var(--panel);
+border:1px solid var(--line);
+border-radius:16px;
+padding:18px;
+box-shadow:0 14px 40px #0005
+}
+
+.qnum{
+font-size:12px;
+color:#7faeff;
+font-weight:900;
+margin-bottom:10px
+}
+
+.qtext{
+font-size:17px;
+line-height:1.55;
+font-weight:700;
+margin-bottom:17px
+}
+
+.option{
+width:100%;
+text-align:left;
+background:var(--panel2);
+color:var(--text);
+border:1px solid #2b3545;
+border-radius:13px;
+padding:13px 12px;
+margin:7px 0;
+cursor:pointer;
+display:flex;
+gap:10px;
+align-items:flex-start;
+transition:.15s
+}
+
+.option:hover{
+border-color:#5279b8
+}
+
+.option.selected{
+border-color:var(--blue);
+background:#142746
+}
+
+.letter{
+min-width:26px;
+height:26px;
+border-radius:8px;
+background:#202a39;
+display:grid;
+place-items:center;
+font-weight:900;
+color:#aab8cc;
+font-size:12px
+}
+
+.selected .letter{
+background:var(--blue);
+color:#fff
+}
+
+.nav{
+display:flex;
+gap:8px;
+margin-top:12px
+}
+
+.nav button{
+flex:1;
+padding:12px;
+border-radius:12px;
+border:1px solid var(--line);
+background:#121a26;
+color:#fff;
+font-weight:800;
+cursor:pointer
+}
+
+.nav .primary{
+background:var(--blue);
+border-color:var(--blue)
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(10,1fr);
+gap:6px;
+margin-top:12px
+}
+
+.jump{
+padding:8px 0;
+border-radius:8px;
+background:#121a25;
+color:#9aa7b9;
+border:1px solid #242e3e;
+font-size:11px;
+font-weight:800
+}
+
+.jump.done{
+background:#123d31;
+color:#54e0ad;
+border-color:#1c7258
+}
+
+.jump.current{
+outline:2px solid var(--blue);
+color:#fff
+}
+
+#start,#result{
+min-height:calc(100vh - 70px);
+display:grid;
+place-items:center
+}
+
+.hero{
+text-align:center;
+background:var(--panel);
+border:1px solid var(--line);
+border-radius:20px;
+padding:26px;
+max-width:500px;
+box-shadow:0 20px 60px #0006
+}
+
+.hero h1{
+margin:0 0 7px;
+font-size:28px
+}
+
+.hero p{
+color:var(--muted);
+line-height:1.55
+}
+
+.hero button{
+background:var(--blue);
+border:0;
+color:white;
+padding:13px 24px;
+border-radius:12px;
+font-weight:900;
+cursor:pointer
+}
+
+.score{
+font-size:48px;
+font-weight:1000;
+color:#68a0ff
+}
+
+.small{
+font-size:12px;
+color:var(--muted)
+}
+
+.review{
+margin-top:15px;
+text-align:left
+}
+
+.reviewitem{
+background:#111824;
+border:1px solid var(--line);
+border-radius:13px;
+padding:13px;
+margin:8px 0
+}
+
+.correct{
+border-color:#1b684f
+}
+
+.wrong{
+border-color:#73333c
+}
+
+.reviewitem b{
+display:block;
+margin-bottom:7px
+}
+
+.ans{
+font-size:13px;
+color:var(--muted);
+margin-top:4px
+}
+
+.explain{
+margin-top:10px;
+padding:11px 12px;
+border-radius:11px;
+background:#0c1119;
+border-left:3px solid var(--blue);
+font-size:13px;
+line-height:1.55;
+color:#d8e0ec
+}
+
+.correct .explain{
+border-left-color:var(--green)
+}
+
+.wrong .explain{
+border-left-color:var(--red)
+}
+
+.corrhead{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+margin-bottom:8px
+}
+
+.badge{
+font-size:10px;
+font-weight:900;
+padding:5px 8px;
+border-radius:99px
+}
+
+.badge.ok{
+background:#123d31;
+color:#54e0ad
+}
+
+.badge.no{
+background:#4b1f27;
+color:#ff7a87
+}
+
+@media(max-width:500px){
+.qtext{font-size:16px}
+.grid{grid-template-columns:repeat(8,1fr)}
+.card{padding:15px}
+}
 </style>
 </head>
+
 <body>
+
 <header class="top">
- <div class="topin">
-  <div><div class="brand">Sᴍᴏᴋᴇ•X <span>CBT</span></div><div class="meta">STA 112 • Data Analysis • Past Questions</div></div>
-  <div class="timer" id="timer">60:00</div>
- </div>
+<div class="topin">
+
+<div>
+<div class="brand">Sᴍᴏᴋᴇ•X <span>CBT</span></div>
+<div class="meta">STA 112 • Data Analysis • Past Questions</div>
+</div>
+
+<div class="timer" id="timer">60:00</div>
+
+</div>
 </header>
 
+
 <section id="start" class="wrap">
- <div class="hero">
-  <h1>STA 112 CBT</h1>
-  <p>Select your exam mode. The system will randomly pick <b>35 questions</b> from the past-question bank every time you start.</p>
-  <p class="small">35 questions • 60 minutes • Random selection</p>
-  <button onclick="startRandomTest()">START RANDOM 35</button>
- </div>
+
+<div class="hero">
+
+<h1>STA 112 CBT</h1>
+
+<p>
+The exam contains <b>35 questions</b> in the original order:
+Question 1, Question 2, Question 3 and so on.
+</p>
+
+<p class="small">
+35 questions • 60 minutes • Original order
+</p>
+
+<button onclick="startRandomTest()">
+START 35-QUESTION EXAM
+</button>
+
+</div>
+
 </section>
+
 
 <main id="exam" class="wrap" style="display:none">
- <div class="progressbox">
-  <div class="progressrow"><span id="counter">Question 1 of 70</span><span id="answered">0 answered</span></div>
-  <div class="track"><div class="fill" id="fill"></div></div>
- </div>
- <div class="card">
-  <div class="qnum" id="qnum">QUESTION 1</div>
-  <div class="qtext" id="qtext"></div>
-  <div id="options"></div>
- </div>
- <div class="nav">
-  <button onclick="prevQ()">← Previous</button>
-  <button class="primary" id="nextBtn" onclick="nextQ()">Next →</button>
- </div>
- <div class="grid" id="grid"></div>
+
+<div class="progressbox">
+
+<div class="progressrow">
+<span id="counter">Question 1 of 35</span>
+<span id="answered">0 answered</span>
+</div>
+
+<div class="track">
+<div class="fill" id="fill"></div>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="qnum" id="qnum">
+QUESTION 1
+</div>
+
+<div class="qtext" id="qtext"></div>
+
+<div id="options"></div>
+
+</div>
+
+
+<div class="nav">
+
+<button onclick="prevQ()">
+← Previous
+</button>
+
+<button class="primary" id="nextBtn" onclick="nextQ()">
+Next →
+</button>
+
+</div>
+
+
+<div class="grid" id="grid"></div>
+
 </main>
 
+
 <section id="result" class="wrap" style="display:none">
- <div class="hero" style="max-width:760px;width:100%">
-  <div class="small">EXAM COMPLETED</div>
-  <div class="score" id="score">0%</div>
-  <h2 id="scoreText"></h2>
-  <p id="resultStats"></p>
-  <button onclick="location.reload()">TAKE AGAIN</button>
-  <div class="review" id="review"></div>
- </div>
+
+<div class="hero" style="max-width:760px;width:100%">
+
+<div class="small">
+EXAM COMPLETED
+</div>
+
+<div class="score" id="score">
+0%
+</div>
+
+<h2 id="scoreText"></h2>
+
+<p id="resultStats"></p>
+
+<button onclick="location.reload()">
+TAKE AGAIN
+</button>
+
+<div class="review" id="review"></div>
+
+</div>
+
 </section>
 
+
 <script>
-const questions = [{"n": 1, "question": "A random sample of 28 FUPRE students read a mean of 12 books with a standard deviation of 2.14 books in a month. At 0.05 level of significance, determine the calculated value of the statistic for testing the claim that the mean number of books read per month is less than 2.", "options": ["-0.8", "0.80", "1.98", "-1.98"], "answer": "D"}, {"n": 2, "question": "Using the information in Question 1, what is the table value for this test?", "options": ["1.96", "1.65", "2.252", "1.703"], "answer": "D"}, {"n": 3, "question": "Using the information in Questions 1–2, what is the decision for the hypothesis?", "options": ["Reserve judgment", "Accept H₀", "Cannot reject H₀", "Reject H₀"], "answer": "B"}, {"n": 4, "question": "The variance of a set of data is 40. What is the variance if each element of the data is divided by 2?", "options": ["40", "10", "160", "80"], "answer": "B"}, {"n": 5, "question": "The variance of a set of data is 30. What is the variance if 2 is subtracted from each element of the data?", "options": ["60", "30", "90", "120"], "answer": "B"}, {"n": 6, "question": "A sample of 30 roses has a mean price of $48.33 and standard deviation 6.07. At α = 1%, test the claim that the mean price is higher than 45. What is the calculated test statistic?", "options": ["3.33", "3.0", "1.11", "2.54"], "answer": "B"}, {"n": 7, "question": "Using Question 6, what is the table value for the test?", "options": ["1.96", "2.33", "1.64", "2.58"], "answer": "B"}, {"n": 8, "question": "Using Questions 6–7, what is the decision for the hypothesis?", "options": ["Reserve judgment", "Reject H₀", "Cannot reject H₀", "Accept H₀"], "answer": "B"}, {"n": 9, "question": "The volume of wine filled by a bottling machine is normally distributed with σ = 5 cl. In a sample of 16 bottles, x̄ = 74.3 cl. Construct a 95% confidence interval for μ.", "options": ["(71.64, 76.96)", "(71.85, 76.75)", "(-71.64, -76.96)", "(-71.85, -76.75)"], "answer": "A"}, {"n": 10, "question": "The 95% confidence interval for the mean, with n = 34, x̄ = 3.54 and s = 0.13, is:", "options": ["(3.50, 3.58)", "(-3.50, 3.58)", "(3.40, 3.50)", "(-3.40, 3.50)"], "answer": "A"}, {"n": 11, "question": "If x̄₁ = 3, s₁ = 0.9, n₁ = 50, x̄₂ = 3.5, s₂ = 1.2, n₂ = 50, the value of the test statistic for testing the significant difference between the two sample means is:", "options": ["1.96", "2.36", "-2.36", "-1.107"], "answer": "C"}, {"n": 12, "question": "What is the table value for the test in Question 11, using α = 1%?", "options": ["1.96", "1.64", "2.58", "2.24"], "answer": "C"}, {"n": 13, "question": "What is the decision for the hypothesis in Questions 11–12, using α = 1%?", "options": ["Reserve judgment", "Reject H₀", "Cannot reject H₀", "Accept H₀"], "answer": "D"}, {"n": 14, "question": "A company claims that its meat pie takes 10 minutes to make. To test if the actual time taken is more than the company claim, a sample was selected and hypothesis testing carried out. What type of test is this?", "options": ["Type I", "Type II", "Two-tailed", "One-tailed"], "answer": "D"}, {"n": 15, "question": "For testing a hypothesis using normal distribution, H₀ is rejected if:", "options": ["P-value ≤ α", "P-value ≥ α", "P-value > α", "P-value < α"], "answer": "D"}, {"n": 16, "question": "A random sample of 34 Shoprite customers spent a mean amount of 4.43 and standard deviation 3.23. Test the claim that the mean amount spent is less than 5 at α = 0.05. What is the calculated test statistic?", "options": ["1.03", "1.11", "-1.03", "-1.11"], "answer": "C"}, {"n": 17, "question": "Using Question 16, what is the table value for this test?", "options": ["1.96", "2.33", "1.65", "2.58"], "answer": "C"}, {"n": 18, "question": "Using Questions 16–17, what is the decision for the hypothesis?", "options": ["Reserve judgment", "Reject H₀", "Cannot reject H₀", "Accept H₀"], "answer": "C"}, {"n": 19, "question": "Acceptance of the null hypothesis when it is false leads to ______ error.", "options": ["Type I", "Type II", "One-tailed", "Two-tailed"], "answer": "B"}, {"n": 20, "question": "The first step in hypothesis testing is the determination of the ______.", "options": ["Critical region", "H₀ and H₁", "Calculated value of the test statistic", "Decision"], "answer": "B"}, {"n": 21, "question": "From the gender/colour table in the question paper, how many males should we have expected to prefer light colour?", "options": ["16.6", "27.67", "1.66", "13.83"], "answer": "A"}, {"n": 22, "question": "From the same table, how many females should we have expected to prefer bright colour?", "options": ["22.33", "27.67", "16.6", "13.40"], "answer": "A"}, {"n": 23, "question": "What is the calculated value for testing the dependent of colour on gender?", "options": ["24.007", "27.672", "16.642", "23.405"], "answer": "D"}, {"n": 24, "question": "What is the table value for Question 23?", "options": ["7.815", "2.58", "2.131", "1.96"], "answer": "A"}, {"n": 25, "question": "What is the decision for the hypothesis in Questions 23–24?", "options": ["Reject H₀", "Accept H₀", "Cannot reject H₀", "Reserve judgment"], "answer": "A"}, {"n": 26, "question": "If n = 148, x̄ = -7.1, σ = 1.2, a 95% confidence interval for μ is:", "options": ["(6.91, 7.29)", "(-7.29, -6.91)", "(-7.29, 6.91)", "(-6.91, -7.29)"], "answer": "D"}, {"n": 27, "question": "If n = 16, x̄ = -7.1, S = 1.1, a 95% confidence interval for μ is:", "options": ["(6.51, 7.49)", "(-7.69, -6.51)", "(-6.51, 7.49)", "(6.69, 7.51)"], "answer": "B"}, {"n": 28, "question": "If x̄₁ = 8.5, s₁ = 2.3, n₁ = 100, x̄₂ = 7.5, s₂ = 2.8, n₂ = 110, the value of the test statistic for the significant difference between the two sample means is:", "options": ["1.96", "-2.84", "2.84", "2.58"], "answer": "C"}, {"n": 29, "question": "What is the decision for Question 28 using α = 5%?", "options": ["Accept H₀", "Cannot reject H₀", "Reject H₀", "Reserve judgment"], "answer": "C"}, {"n": 30, "question": "If Var(X) = 2, then Var(X + C), where C = 2, is:", "options": ["6", "4", "8", "2"], "answer": "D"}, {"n": 31, "question": "A 95% confidence interval reported for parameter μ is 1.6 to 7.8, based on 16 observations constructed using the t-distribution. What is the table value of the t-distribution?", "options": ["2.131", "1.64", "2.58", "2.24"], "answer": "A"}, {"n": 32, "question": "Using Question 31, what is the value of the standard error of mean S.E.(x̄)?", "options": ["1.45", "2.131", "4.18", "1.64"], "answer": "A"}, {"n": 33, "question": "Using Question 31, what is the mean of the unknown data set?", "options": ["4.70", "1.60", "1.50", "2.54"], "answer": "A"}, {"n": 34, "question": "If α = 2.5%, what is the table value for a two-tailed test using normal distribution?", "options": ["1.96", "1.64", "2.58", "2.24"], "answer": "D"}, {"n": 35, "question": "The critical region is the region for:", "options": ["Acceptance of H₀", "Acceptance of H₁", "Rejection of H₁", "Rejection of H₀"], "answer": "D"}, {"n": 36, "question": "The use of sample for taking decision about the population is referred to as ______ statistic.", "options": ["Descriptive", "Estimation", "Sample", "Inferential"], "answer": "D"}, {"n": 37, "question": "Tabular, graphical and numerical methods used to summarize a data set are called ______ statistics.", "options": ["Data presentation", "Inferential", "Descriptive", "Bar chart"], "answer": "C"}, {"n": 38, "question": "In measuring sample, we normally summarize the sample ______ to be able to generalize the population.", "options": ["Variable", "Parameter", "Statistic", "Survey"], "answer": "C"}, {"n": 39, "question": "When equal interval is used in measuring population or sample, it is better to use ______.", "options": ["Ordinal scale", "Ratio scale", "Nominal scale", "Interval scale"], "answer": "D"}, {"n": 40, "question": "If Var(X) = 4, then Var(X − C), where C = 2, is:", "options": ["6", "4", "2", "8"], "answer": "B"}, {"n": 41, "question": "Calculate x if the mean of 30, (x + 5), 12, 40, and 10 is (x + 1).", "options": ["25", "23", "20", "22"], "answer": "C"}, {"n": 42, "question": "______ is a good example of a sampling frame.", "options": ["Voter’s card", "Voter’s register", "Class attendance", "Employee’s name"], "answer": "B"}, {"n": 43, "question": "Why is sample preferred to population in most statistical enquiry?", "options": ["Biased", "Statistic", "Unbiased", "Parameter"], "answer": "B"}, {"n": 44, "question": "Select a sample of 5 members from a population consisting of 20 members. Given that the first number selected is 3. Find the mean of the sample using systematic random sampling.", "options": ["11", "3", "7", "19"], "answer": "A"}, {"n": 45, "question": "Which of the following is a quasi-homogeneous random sampling?", "options": ["Systematic random sampling", "Simple random sampling", "Stratified random sampling", "Cluster sampling"], "answer": "D"}, {"n": 46, "question": "______ is a sampling method drawn from different groups from a given population.", "options": ["Multi-stage sampling", "Stratified random sampling", "Cluster sampling", "Systematic random sampling"], "answer": "B"}, {"n": 47, "question": "A survey was carried out on some students of the MTH 112 class to assess their performance. What is this type of sampling called?", "options": ["Simple random sampling", "Cluster sampling", "Multi-stage sampling", "Pilot survey"], "answer": "A"}, {"n": 48, "question": "A measurement scale that serves as a label is termed:", "options": ["Ordinal", "Ratio", "Interval", "Nominal"], "answer": "D"}, {"n": 49, "question": "Given class intervals 31–40, 41–50, 51–60, 61–70, what is the upper class boundary of the second class?", "options": ["40.5", "50.5", "60.5", "30.5"], "answer": "B"}, {"n": 50, "question": "For the marks 14, 19, 18, 12, 18, 8, 19, 16, 10, 11, 3, 17, 18, 11, 15, 5, 20, 16, 12, 3, find the frequency mark for class interval 16–20 using class size 5.", "options": ["4", "2", "9", "8"], "answer": "C"}, {"n": 51, "question": "Which of the following is a common factor to bar chart and histogram?", "options": ["Class interval", "Class boundary", "Frequency", "Class marks"], "answer": "C"}, {"n": 52, "question": "A chemist undertook an experiment where they tried adding six different amounts of a catalyst. If the amounts are 4.1, 2.0, 6.0, 2.8, 1.1 and 4.9, find Σ(xᵢ − x̄).", "options": ["20.9", "3.0", "6.97", "0"], "answer": "D"}, {"n": 53, "question": "Which of the following is the variance of y?", "options": ["Σ(yᵢ − ȳ)² / n", "Σyᵢ² − Σyᵢ", "Σ(yᵢ − ȳ)yᵢ", "Σyᵢ² − ȳ²"], "answer": "A"}, {"n": 54, "question": "Given the data 60, 49, 40, 61, 64, 60, 59, 54, 62, 69, 70, 42, 56, 61, 61, 58, 51, 48, 65, 49, 44, 48, 52, 46, 59, 46, 58, 43. What is the sector angle of 69?", "options": ["4°", "8°", "12°", "10.8°"], "answer": "NO_VALID_OPTION"}, {"n": 55, "question": "Find the semi-interquartile range of the 10 students' scores in PHY 109: 10, 6, 6, 2, 10, 3, 7, 4, 8, 4.", "options": ["3.75", "8.5", "4.75", "2.38"], "answer": "D"}, {"n": 56, "question": "Which of the following best explains why we classify data?", "options": ["To prepare tabulation", "To eliminate necessary details", "To draw inference", "To present data in minimum space"], "answer": "C"}, {"n": 57, "question": "What is the mode of the numbers 1, 8, 8, 10, 9, 2, 7, 8, 2, 2, 4, 1, 1, 8, 7, 1?", "options": ["8", "2", "1", "4"], "answer": "C"}, {"n": 58, "question": "The standard deviation of a statistic describes:", "options": ["The shape of its distribution", "The centre of its distribution", "The amount of skewness associated with its distribution", "The amount of variability associated with its distribution"], "answer": "D"}, {"n": 59, "question": "One can easily determine the ______ of a distribution from a histogram.", "options": ["Mean", "Mode", "Median", "Standard deviation"], "answer": "B"}, {"n": 60, "question": "An experiment in which the outcomes are two probabilities: Success or Failure is said to be:", "options": ["Binomial", "Normal", "Geometric", "Bernoulli"], "answer": "A"}, {"n": 61, "question": "The formula for Spearman’s rank correlation is:", "options": ["1 + 6Σd²/[n(n²−1)]", "1 − Σd²/[n(n²−1)]", "1 − 6Σd²/[n(n²−1)]", "1 − 6Σd²/n²"], "answer": "C"}, {"n": 62, "question": "A number is selected at random from 0 to 20. What is the probability that the number is an odd prime?", "options": ["2/5", "7/20", "1/2", "1/20"], "answer": "B"}, {"n": 63, "question": "The range of values a probability can assume is:", "options": ["From 0 to 1", "From −1 to 1", "From 1 to 100", "From 0 to ½"], "answer": "A"}, {"n": 64, "question": "Let P be the set of prime factors of 42 and Q the set of prime factors of 45. Find P ∩ Q.", "options": ["{2}", "{3}", "{7}", "{5}"], "answer": "B"}, {"n": 65, "question": "A survey was carried out on some students of the MAT 004 class to assess their performance. What is this type of sampling called?", "options": ["Simple random sampling", "Cluster sampling", "Multi-stage sampling", "Pilot survey"], "answer": "A"}, {"n": 66, "question": "A random distribution that measures rare events in space and time and has its mean and variance the same is expressed as:", "options": ["Poisson", "Beta", "Gamma", "Hypergeometric"], "answer": "A"}, {"n": 67, "question": "Which of the following is a common factor to bar chart and histogram?", "options": ["Class interval", "Class boundary", "Frequency", "Class marks"], "answer": "C"}, {"n": 68, "question": "For the marks 14, 19, 18, 12, 18, 8, 19, 16, 10, 11, 3, 17, 18, 11, 15, 5, 20, 16, 12, 3, find the frequency mark for class interval 16–20 using class size 5.", "options": ["4", "2", "9", "8"], "answer": "C"}, {"n": 69, "question": "Given class intervals 31–40, 41–50, 51–60, 61–70, what is the upper class boundary of the second class?", "options": ["40.5", "50.5", "60.5", "30.5"], "answer": "B"}, {"n": 70, "question": "______ is a good example of a sampling frame.", "options": ["Voter’s card", "Voter’s register", "Class attendance", "Employee’s name"], "answer": "C"}];
+
+const questions = [
+
+{
+n:1,
+question:"A random sample of 28 FUPRE students read a mean of 12 books with a standard deviation of 2.14 books in a month. At 0.05 level of significance, determine the calculated value of the statistic for testing the claim that the mean number of books read per month is less than 2.",
+options:["-0.8","0.80","1.98","-1.98"],
+answer:"D"
+},
+
+{
+n:2,
+question:"Using the information in Question 1, what is the table value for this test?",
+options:["1.96","1.65","2.252","1.703"],
+answer:"D"
+},
+
+{
+n:3,
+question:"Using the information in Questions 1–2, what is the decision for the hypothesis?",
+options:["Reserve judgment","Accept H₀","Cannot reject H₀","Reject H₀"],
+answer:"B"
+},
+
+{
+n:4,
+question:"The variance of a set of data is 40. What is the variance if each element of the data is divided by 2?",
+options:["40","10","160","80"],
+answer:"B"
+},
+
+{
+n:5,
+question:"The variance of a set of data is 30. What is the variance if 2 is subtracted from each element of the data?",
+options:["60","30","90","120"],
+answer:"B"
+},
+
+{
+n:6,
+question:"A sample of 30 roses has a mean price of $48.33 and standard deviation 6.07. At α = 1%, test the claim that the mean price is higher than 45. What is the calculated test statistic?",
+options:["3.33","3.0","1.11","2.54"],
+answer:"B"
+},
+
+{
+n:7,
+question:"Using Question 6, what is the table value for the test?",
+options:["1.96","2.33","1.64","2.58"],
+answer:"B"
+},
+
+{
+n:8,
+question:"Using Questions 6–7, what is the decision for the hypothesis?",
+options:["Reserve judgment","Reject H₀","Cannot reject H₀","Accept H₀"],
+answer:"B"
+},
+
+{
+n:9,
+question:"The volume of wine filled by a bottling machine is normally distributed with σ = 5 cl. In a sample of 16 bottles, x̄ = 74.3 cl. Construct a 95% confidence interval for μ.",
+options:["(71.64, 76.96)","(71.85, 76.75)","(-71.64, -76.96)","(-71.85, -76.75)"],
+answer:"A"
+},
+
+{
+n:10,
+question:"The 95% confidence interval for the mean, with n = 34, x̄ = 3.54 and s = 0.13, is:",
+options:["(3.50, 3.58)","(-3.50, 3.58)","(3.40, 3.50)","(-3.40, 3.50)"],
+answer:"A"
+},
+
+{
+n:11,
+question:"If x̄₁ = 3, s₁ = 0.9, n₁ = 50, x̄₂ = 3.5, s₂ = 1.2, n₂ = 50, the value of the test statistic for testing the significant difference between the two sample means is:",
+options:["1.96","2.36","-2.36","-1.107"],
+answer:"C"
+},
+
+{
+n:12,
+question:"What is the table value for the test in Question 11, using α = 1%?",
+options:["1.96","1.64","2.58","2.24"],
+answer:"C"
+},
+
+{
+n:13,
+question:"What is the decision for the hypothesis in Questions 11–12, using α = 1%?",
+options:["Reserve judgment","Reject H₀","Cannot reject H₀","Accept H₀"],
+answer:"D"
+},
+
+{
+n:14,
+question:"A company claims that its meat pie takes 10 minutes to make. To test if the actual time taken is more than the company claim, a sample was selected and hypothesis testing carried out. What type of test is this?",
+options:["Type I","Type II","Two-tailed","One-tailed"],
+answer:"D"
+},
+
+{
+n:15,
+question:"For testing a hypothesis using normal distribution, H₀ is rejected if:",
+options:["P-value ≤ α","P-value ≥ α","P-value > α","P-value < α"],
+answer:"D"
+},
+
+{
+n:16,
+question:"A random sample of 34 Shoprite customers spent a mean amount of 4.43 and standard deviation 3.23. Test the claim that the mean amount spent is less than 5 at α = 0.05. What is the calculated test statistic?",
+options:["1.03","1.11","-1.03","-1.11"],
+answer:"C"
+},
+
+{
+n:17,
+question:"Using Question 16, what is the table value for this test?",
+options:["1.96","2.33","1.65","2.58"],
+answer:"C"
+},
+
+{
+n:18,
+question:"Using Questions 16–17, what is the decision for the hypothesis?",
+options:["Reserve judgment","Reject H₀","Cannot reject H₀","Accept H₀"],
+answer:"C"
+},
+
+{
+n:19,
+question:"Acceptance of the null hypothesis when it is false leads to ______ error.",
+options:["Type I","Type II","One-tailed","Two-tailed"],
+answer:"B"
+},
+
+{
+n:20,
+question:"The first step in hypothesis testing is the determination of the ______.",
+options:["Critical region","H₀ and H₁","Calculated value of the test statistic","Decision"],
+answer:"B"
+},
+
+{
+n:21,
+question:"From the gender/colour table in the question paper, how many males should we have expected to prefer light colour?",
+options:["16.6","27.67","1.66","13.83"],
+answer:"A"
+},
+
+{
+n:22,
+question:"From the same table, how many females should we have expected to prefer bright colour?",
+options:["22.33","27.67","16.6","13.40"],
+answer:"A"
+},
+
+{
+n:23,
+question:"What is the calculated value for testing the dependent of colour on gender?",
+options:["24.007","27.672","16.642","23.405"],
+answer:"D"
+},
+
+{
+n:24,
+question:"What is the table value for Question 23?",
+options:["7.815","2.58","2.131","1.96"],
+answer:"A"
+},
+
+{
+n:25,
+question:"What is the decision for the hypothesis in Questions 23–24?",
+options:["Reject H₀","Accept H₀","Cannot reject H₀","Reserve judgment"],
+answer:"A"
+},
+
+{
+n:26,
+question:"If n = 148, x̄ = -7.1, σ = 1.2, a 95% confidence interval for μ is:",
+options:["(6.91, 7.29)","(-7.29, -6.91)","(-7.29, 6.91)","(-6.91, -7.29)"],
+answer:"D"
+},
+
+{
+n:27,
+question:"If n = 16, x̄ = -7.1, S = 1.1, a 95% confidence interval for μ is:",
+options:["(6.51, 7.49)","(-7.69, -6.51)","(-6.51, 7.49)","(6.69, 7.51)"],
+answer:"B"
+},
+
+{
+n:28,
+question:"If x̄₁ = 8.5, s₁ = 2.3, n₁ = 100, x̄₂ = 7.5, s₂ = 2.8, n₂ = 110, the value of the test statistic for the significant difference between the two sample means is:",
+options:["1.96","-2.84","2.84","2.58"],
+answer:"C"
+},
+
+{
+n:29,
+question:"What is the decision for Question 28 using α = 5%?",
+options:["Accept H₀","Cannot reject H₀","Reject H₀","Reserve judgment"],
+answer:"C"
+},
+
+{
+n:30,
+question:"If Var(X) = 2, then Var(X + C), where C = 2, is:",
+options:["6","4","8","2"],
+answer:"D"
+},
+
+{
+n:31,
+question:"A 95% confidence interval reported for parameter μ is 1.6 to 7.8, based on 16 observations constructed using the t-distribution. What is the table value of the t-distribution?",
+options:["2.131","1.64","2.58","2.24"],
+answer:"A"
+},
+
+{
+n:32,
+question:"Using Question 31, what is the value of the standard error of mean S.E.(x̄)?",
+options:["1.45","2.131","4.18","1.64"],
+answer:"A"
+},
+
+{
+n:33,
+question:"Using Question 31, what is the mean of the unknown data set?",
+options:["4.70","1.60","1.50","2.54"],
+answer:"A"
+},
+
+{
+n:34,
+question:"If α = 2.5%, what is the table value for a two-tailed test using normal distribution?",
+options:["1.96","1.64","2.58","2.24"],
+answer:"D"
+},
+
+{
+n:35,
+question:"The critical region is the region for:",
+options:["Acceptance of H₀","Acceptance of H₁","Rejection of H₁","Rejection of H₀"],
+answer:"D"
+}
+
+];
+
 
 let activeQuestions=[];
-let current=0, answers=[], started=false, time=3600, interval=null;
+let current=0;
+let answers=[];
+let started=false;
+let time=3600;
+let interval=null;
+
 
 function startRandomTest(){
-  // Fisher-Yates shuffle, then take exactly 35.
-  const pool=[...questions];
-  for(let i=pool.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [pool[i],pool[j]]=[pool[j],pool[i]];
-  }
-  activeQuestions=pool.slice(0,35);
-  answers=Array(35).fill(null);
-  startTest();
-}
-function startTest(){
- if(!activeQuestions.length) activeQuestions=[...questions].sort(()=>Math.random()-0.5).slice(0,35);
- started=true;
- document.getElementById('start').style.display='none';
- document.getElementById('exam').style.display='block';
- renderGrid(); render();
- interval=setInterval(tick,1000);
-}
-function tick(){
- time--;
- if(time<0){time=0; submit();}
- const m=Math.floor(time/60).toString().padStart(2,'0'),s=(time%60).toString().padStart(2,'0');
- const t=document.getElementById('timer');t.textContent=m+':'+s;
- if(time<=300)t.classList.add('danger');
-}
-function render(){
- const q=activeQuestions[current];
- document.getElementById('qnum').textContent='QUESTION '+q.n;
- document.getElementById('qtext').textContent=q.question;
- document.getElementById('counter').textContent=`Question ${current+1} of ${activeQuestions.length}`;
- document.getElementById('answered').textContent=answers.filter(x=>x!==null).length+' answered';
- document.getElementById('fill').style.width=((current+1)/activeQuestions.length*100)+'%';
- const box=document.getElementById('options');box.innerHTML='';
- q.options.forEach((op,i)=>{
-  const b=document.createElement('button');b.className='option'+(answers[current]===i?' selected':'');
-  b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${escapeHtml(op)}</span>`;
-  b.onclick=()=>{answers[current]=i;render()};
-  box.appendChild(b);
- });
- document.getElementById('nextBtn').textContent=current===activeQuestions.length-1?'Submit Exam':'Next →';
- [...document.querySelectorAll('.jump')].forEach((b,i)=>{
-   b.classList.toggle('current',i===current);b.classList.toggle('done',answers[i]!==null);
- });
- window.scrollTo({top:0,behavior:'smooth'});
-}
-function renderGrid(){
- const g=document.getElementById('grid');g.innerHTML='';
- activeQuestions.forEach((q,i)=>{const b=document.createElement('button');b.className='jump';b.textContent=i+1;b.onclick=()=>{current=i;render()};g.appendChild(b)});
-}
-function prevQ(){if(current>0){current--;render()}}
-function nextQ(){if(current<activeQuestions.length-1){current++;render()}else submit()}
-function submit(){
- clearInterval(interval);
- let correct=0;
- activeQuestions.forEach((q,i)=>{
-   if(q.answer==='NO_VALID_OPTION') return; // source has no matching printed option
-   if(answers[i]!==null && String.fromCharCode(65+answers[i])===q.answer) correct++;
- });
- // Exclude the one source question whose solution explicitly says "No option".
- const scorable=questions.filter(q=>q.answer!=='NO_VALID_OPTION').length;
- const pct=Math.round(correct/scorable*100);
- document.getElementById('exam').style.display='none';
- document.getElementById('result').style.display='grid';
- document.getElementById('score').textContent=pct+'%';
- document.getElementById('scoreText').textContent=pct>=70?'Excellent 🔥':pct>=50?'Good work 💪':'Keep practicing 📚';
- document.getElementById('resultStats').textContent=`${correct}/${scorable} correct • ${answers.filter(x=>x!==null).length}/${activeQuestions.length} attempted`;
- buildReview();
-}
-function buildReview(){
- const r=document.getElementById('review');r.innerHTML='<h3>Answer Review</h3>';
- activeQuestions.forEach((q,i)=>{
-  if(answers[i]===null)return;
-  const chosen=String.fromCharCode(65+answers[i]);
-  const source=q.answer;
-  const ok=source!=='NO_VALID_OPTION' && chosen===source;
-  const d=document.createElement('div');d.className='reviewitem '+(ok?'correct':'wrong');
-  let right=source==='NO_VALID_OPTION'?'No valid printed option (the source solution notes this).':source;
-  d.innerHTML=`<b>${q.n}. ${escapeHtml(q.question)}</b><div class="ans">Your answer: ${chosen} • Source answer: ${right}</div>`;
-  r.appendChild(d);
- });
-}
-function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 
-</script>
-</body>
-</html>
+activeQuestions=questions
+.slice(0,35)
+.map((q,i)=>({
+...q,
+n:i+1
+}));
+
+current=0;
+answers=Array(35).fill(null);
+time=3600;
+
+startTest();
+}
+
+
+function startTest(){
+
+if(!activeQuestions.length){
+
+activeQuestions=questions
+.slice(0,35)
+.map((q,i)=>({
+...q,
+n:i+1
+}));
+
+}
+
+started=true;
+
+document.getElementById("start").style.display="none";
+document.getElementById("exam").style.display="block";
+document.getElementById("result").style.display="none";
+
+render();
+renderGrid();
+updateTimer();
+
+clearInterval(interval);
+
+interval=setInterval(()=>{
+
+time--;
+
+updateTimer();
+
+if(time<=0){
+
+clearInterval(interval);
+
+submitTest();
+
+}
+
+},1000);
+
+}
+
+
+function updateTimer(){
+
+let mins=Math.floor(time/60);
+let secs=time%60;
+
+document.getElementById("timer").textContent=
+String(mins).padStart(2,"0")+":"+
+String(secs).padStart(2,"0");
+
+if(time<=300){
+
+document.getElementById("timer")
+.classList.add("danger");
+
+}
+
+}
+
+
+function render(){
+
+const q=activeQuestions[current];
+
+document.getElementById("counter").textContent=
+"Question "+(current+1)+" of "+activeQuestions.length;
+
+document.getElementById("qnum").textContent=
+"QUESTION "+(current+1);
+
+document.getElementById("qtext").textContent=
+q.question;
+
+const options=document.getElementById("options");
+
+options.innerHTML="";
+
+q.options.forEach((opt,i)=>{
+
+const letter=String.fromCharCode(65+i);
+
+const btn=document.createElement("button");
+
+btn.className="option";
+
+if(answers[current]===i){
+
+btn.classList.add("selected");
+
+}
+
+btn.innerHTML=
+`<span class="letter">${letter}</span>
+<span>${opt}</span>`;
+
+btn.onclick=()=>selectAnswer(i);
+
+options.appendChild(btn);
+
+});
+
+
+document.getElementById("nextBtn").textContent=
+current===activeQuestions.length-1
+?"Submit Exam"
+:"Next →";
+
+
+updateProgress();
+
+renderGrid();
+
+}
+
+
+function selectAnswer(index){
+
+answers[current]=index;
+
+render();
+
+}
+
+
+function nextQ(){
+
+if(current===activeQuestions.length-1){
+
+submitTest();
+
+return;
+
+}
+
+current++;
+
+render();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function prevQ(){
+
+if(current>0){
+
+current--;
+
+render();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+}
+
+
+function jumpTo(i){
+
+current=i;
+
+render();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function updateProgress(){
+
+const answered=
+answers.filter(x=>x!==null).length;
+
+document.getElementById("answered").textContent=
+answered+" answered";
+
+const percentage=
+((current+1)/activeQuestions.length)*100;
+
+document.getElementById("fill").style.width=
+percentage+"%";
+
+}
+
+
+function renderGrid(){
+
+const grid=document.getElementById("grid");
+
+grid.innerHTML="";
+
+activeQuestions.forEach((q,i)=>{
+
+const btn=document.createElement("button");
+
+btn.className="jump";
+
+btn.textContent=i+1;
+
+if(answers[i]!==null){
+
+btn.classList.add("done");
+
+}
+
+if(i===current){
+
+btn.classList.add("current");
+
+}
+
+btn.onclick=()=>jumpTo(i);
+
+grid.appendChild(btn);
+
+});
+
+}
+
+
+function submitTest(){
+
+clearInterval(interval);
+
+let correct=0;
+let attempted=0;
+
+activeQuestions.forEach((q,i)=>{
+
+if(answers[i]!==null){
+
+attempted++;
+
+const chosen=
+String.fromCharCode(65+answers[i]);
+
+if(q.answer!=="NO_VALID_OPTION" &&
+chosen===q.answer){
+
+correct++;
+
+}
+
+}
+
+});
+
+
+const scorable=
+activeQuestions.filter(
+q=>q.answer!=="NO_VALID_OPTION"
+).length;
+
+
+const percent=
+scorable
+?Math.round((correct/scorable)*100)
+:0;
+
+
+document.getElementById("exam").style.display="none";
+document.getElementById("result").style.display="grid";
+
+document.getElementById("score").textContent=
+percent+"%";
+
+
+document.getElementById("scoreText").textContent=
+correct+" / "+scorable+" Correct";
+
+
+document.getElementById("resultStats").textContent=
+attempted+" answered • "+
+(activeQuestions.length-attempted)+" unanswered";
+
+
+buildReview();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function explanationFor(q,source){
+
+if(source==="NO_VALID_OPTION"){
+
+return "This question does not have a matching valid printed option in the current question bank, so it is excluded from the score.";
+
+}
+
+const correctText=
+q.options[source.charCodeAt(0)-65];
+
+const s=q.question.toLowerCase();
+
+
+if(
+s.includes("variance") &&
+(
+s.includes("divided") ||
+s.includes("subtracted") ||
+s.includes("x + c") ||
+s.includes("x − c")
+)
+){
+
+return "For variance, adding or subtracting a constant does not change the variance. Multiplying or dividing every observation by a constant changes the variance by the square of that constant.";
+
+}
+
+
+if(s.includes("confidence interval")){
+
+return "A confidence interval is formed from the sample estimate plus or minus the appropriate critical value multiplied by the standard error. The critical value depends on the distribution and confidence level.";
+
+}
+
+
+if(
+s.includes("table value") ||
+s.includes("critical value")
+){
+
+return "The table or critical value is selected from the appropriate statistical distribution using the significance level, number of tails, and degrees of freedom where applicable.";
+
+}
+
+
+if(
+s.includes("decision for the hypothesis")
+){
+
+return "Compare the calculated test statistic with the critical value, or compare the p-value with α. If the statistic is in the rejection region, reject H₀. Otherwise, do not reject H₀.";
+
+}
+
+
+if(s.includes("p-value")){
+
+return "When the p-value is less than or equal to the chosen significance level α, the null hypothesis is rejected.";
+
+}
+
+
+if(s.includes("type i")){
+
+return "A Type I error occurs when a true null hypothesis is rejected.";
+
+}
+
+
+if(s.includes("type ii")){
+
+return "A Type II error occurs when a false null hypothesis is not rejected.";
+
+}
+
+
+if(s.includes("first step in hypothesis testing")){
+
+return "The first step is to state the null hypothesis H₀ and the alternative hypothesis H₁.";
+
+}
+
+
+if(
+s.includes("one-tailed") ||
+s.includes("two-tailed")
+){
+
+return "The alternative hypothesis determines the number of tails. A directional claim uses a one-tailed test, while a non-directional difference uses a two-tailed test.";
+
+}
+
+
+if(s.includes("sampling frame")){
+
+return "A sampling frame is a list or register containing members of the population from which a sample can be selected.";
+
+}
+
+
+if(s.includes("sampling")){
+
+return "The sampling method is determined by how members of the population are selected or grouped.";
+
+}
+
+
+if(
+s.includes("nominal") ||
+s.includes("ordinal") ||
+s.includes("interval") ||
+s.includes("ratio")
+){
+
+return "Nominal data identify categories, ordinal data provide order, interval data have equal intervals, and ratio data have equal intervals with a true zero.";
+
+}
+
+
+if(
+s.includes("histogram") ||
+s.includes("bar chart")
+){
+
+return "Both bar charts and histograms can display frequencies. Histograms are normally used for quantitative class intervals.";
+
+}
+
+
+if(s.includes("mode")){
+
+return "The mode is the value that occurs most frequently in a data set.";
+
+}
+
+
+if(s.includes("standard deviation")){
+
+return "Standard deviation measures the amount of variability or spread in a distribution.";
+
+ 
